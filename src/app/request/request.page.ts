@@ -19,18 +19,17 @@ export class RequestPage implements OnInit {
   constructor(private route: ActivatedRoute, private productsService: ProductsService, private formBuilder: FormBuilder,
     public alertController: AlertController, private router: Router) { }
 
-    async submit() {
-      const alert = await this.alertController.create({
-        header: 'Pedido confirmado!',
-        message: 'Daqui a pouco chega :)',
-        buttons: [{text: 'OK', handler: () => this.router.navigate(['products'])}]
-      });
+  async submit () {
+    const alert = await this.alertController.create({
+      header: 'Pedido confirmado',
+      buttons: [{ text: 'OK', handler: () => this.router.navigate(['products']) }]
+    });
 
-      await alert.present();
+    await alert.present();
 
-    }
+  }
 
-  ngOnInit() {
+  ngOnInit () {
     this.slug = this.route.snapshot.paramMap.get('slug');
     this.product = this.productsService.getProductBySlug(this.slug);
     this.form = new RequestPageForm(this.formBuilder).createForm();
