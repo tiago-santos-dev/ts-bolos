@@ -7,11 +7,11 @@ export class ProductsService {
 
   products = [{
     id: 1,
-    title: 'Bolo Assado Com Doces',
+    title: 'Bolo assado com doces',
     slug: 'bolo-assado-com-doces',
     price: 25,
     portions: 12,
-    description: 'Bolo Assado Com Doces No Topo',
+    description: 'Bolo assado com doces no topo',
     imgUrl: 'https://images.pexels.com/photos/709841/pexels-photo-709841.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
   },
   {
