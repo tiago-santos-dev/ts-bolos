@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">Detalhes do Pedido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header color="medium">
+      <ion-card-title>Item</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <p>{{product.title }} </p>
+      </ion-item>
+      <ion-item>
+        <p>R$ {{product.price}},00</p>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header color="medium">
+      <ion-card-title>Dados do Destinatário</ion-card-title>
+    </ion-card-header>
+    <form [formGroup]="form">
+      <ion-item lines="full">
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Telefone</ion-label>
+        <ion-input type="tel" formControlName="tel"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Endereço</ion-label>
+        <ion-input type="text" formControlName="address"></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" expand="block" [disabled]="!form.valid" (click)="submit()">Confirmar
+            Pedido!</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">{{product.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-img src={{product.imgUrl}}></ion-img>
+    <ion-card-content>
+      {{product.description}}
+    </ion-card-content>
+    <ion-button color="primary" expand="block" (click)="onClick()">Encomendar</ion-button>
+  </ion-card>
+</ion-content>

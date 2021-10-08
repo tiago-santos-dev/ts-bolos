@@ -1,0 +1,7 @@
+{
+  "name": "trab-pdm",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
