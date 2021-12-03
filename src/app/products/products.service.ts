@@ -1,46 +1,30 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
+export interface Product {
+  id: number,
+  title: string,
+  slug: string,
+  price: number,
+  portions: number,
+  description: string,
+  imgUrl: string
+}
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  products = [{
-    id: 1,
-    title: 'Bolo assado com doces',
-    slug: 'bolo-assado-com-doces',
-    price: 25,
-    portions: 12,
-    description: 'Bolo assado com doces no topo',
-    imgUrl: 'https://images.pexels.com/photos/709841/pexels-photo-709841.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-  },
-  {
-    id: 2,
-    title: 'Bolo de Chocolate',
-    slug: 'bolo-de-chocolate',
-    price: 15,
-    portions: 10,
-    description: 'Bolo de Chocolate',
-    imgUrl: 'https://images.pexels.com/photos/2144200/pexels-photo-2144200.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-  },
-  {
-    id: 3,
-    title: 'Bolo Fondant Branco',
-    slug: 'bolo-fondant-branco',
-    price: 60,
-    portions: 25,
-    description: 'Bolo Fondant Branco',
-    imgUrl: 'https://images.pexels.com/photos/265801/pexels-photo-265801.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-  }
-  ];
+  private baseUrl: string = 'http://localhost:3000';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getProducts () {
-    return this.products;
+    return this.http.get<[Product]>(`${this.baseUrl}/products`)
   }
 
   getProductBySlug (slug: string) {
-    return this.products.find(product => product.slug === slug);
+    return this.http.get<Product>(`${this.baseUrl}/products?slug=${slug}`)
+
   }
 }
